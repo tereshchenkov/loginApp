@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+  form(action="/register" id="registerForm" method="post")
+    h1 Please sign in
+
+    .form-group
+      label(for="name") Name
+      input.form-control(type="text" id="name" name="displayName" placeholder="Name" required autofocus)
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" id="email" name="email" placeholder="my@mail.com" required)
+    .form-group
+      label(for="password") Password
+      input.form-control(type="password" id="password" name="password" required)
+
+    button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
+  br
+  

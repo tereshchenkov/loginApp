@@ -4,7 +4,8 @@ block content
 
   h1 Welcome, #{user.displayName}
 
-  p You are logged in.
+  p This is some top secret information! 
+  p #{user.email}
 
   form(action="/logout" method="post")
     button.btn.btn-primary(type="submit") Logout
