@@ -15,10 +15,10 @@ module.exports = async (ctx, next) => {
     }
   };
 
-  ctx.render = (templePath, locals) {
-    locals = locals || {};
+  ctx.render = (templePath, locals) => {
+    locals = locals || {} ;
 
-    const localsFull = Object.create(ctx.locals);
+    const localsFull = Object.create(ctx.local);
 
     for(const key in locals) {
       localsFull[key] = locals[key];

@@ -43,7 +43,7 @@ userSchema.methods.getPublicFields = function() {
 
 userSchema.virtual('password')
   .set(function(password) {
-
+    console.log('schema ' + password)
     if (password !== undefined) {
       if (password.length < 4) {
         this.invalidate('password', 'Пароль должен быть минимум 4 символа.');
@@ -71,5 +71,7 @@ userSchema.methods.checkPassword = function(password) {
 
   return crypto.pbkdf2Sync(password, this.salt, config.crypto.hash.iterations, config.crypto.hash.length, 'sha1') == this.passwordHash;
 };
+
+userSchema.statics.publicFields = ['displayName', 'email', 'password'];
 
 module.exports = mongoose.model('User', userSchema);
